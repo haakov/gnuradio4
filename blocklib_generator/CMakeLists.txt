@@ -12,6 +12,14 @@ if(NOT GNURADIO_PARSE_REGISTRATIONS_TOOL_CXX_COMPLILER)
   set(GNURADIO_PARSE_REGISTRATIONS_TOOL_CXX_COMPLILER ${CMAKE_CXX_COMPILER})
 endif()
 
+if(EMSCRIPTEN AND GNURADIO_PARSE_REGISTRATIONS_TOOL_CXX_COMPLILER MATCHES "em\\+\\+(\\.(bat|exe|py))?$")
+  message(WARNING
+      "The gnuradio_4_0_parse_registrations tool will be built with '${GNURADIO_PARSE_REGISTRATIONS_TOOL_CXX_COMPLILER}'.\n"
+      "This is likely to fail with an error such as: \"Error running gnuradio_4_0_parse_registrations (...) file <PATH> not found\".\n"
+      "Please consider configuring with -DGNURADIO_PARSE_REGISTRATIONS_TOOL_CXX_COMPLILER=<native C++ compiler> (e.g. /usr/bin/g++)."
+    )
+endif()
+
 message(
   STATUS "Using ${GNURADIO_PARSE_REGISTRATIONS_TOOL_CXX_COMPLILER} to compile the gnuradio_4_0_parse_registrations tool"
 )
