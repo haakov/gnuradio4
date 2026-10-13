@@ -97,6 +97,21 @@
       }
     },
     {
+      "name": "wasm",
+      "displayName": "GNU Radio 4 WebAssembly (Emscripten)",
+      "inherits": "base",
+      "binaryDir": "${sourceDir}/build/wasm",
+      "toolchainFile": "$env{EMSDK}/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake",
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": "OFF",
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/wasm",
+        "GR4_BUILD_TESTING": "OFF",
+        "GR4_WARNINGS_AS_ERRORS": "OFF",
+        "GR4_EXTRA_CMAKE_ARGS": "-DCMAKE_C_FLAGS=-pthread;-DCMAKE_CXX_FLAGS=-pthread"
+      }
+    },
+    {
       "name": "full",
       "displayName": "GNU Radio 4 complete development workspace",
       "inherits": "dev",
@@ -153,6 +168,11 @@
     {
       "name": "ci",
       "configurePreset": "ci",
+      "jobs": 0
+    },
+    {
+      "name": "wasm",
+      "configurePreset": "wasm",
       "jobs": 0
     },
     {

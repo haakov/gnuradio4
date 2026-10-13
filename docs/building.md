@@ -37,6 +37,7 @@ source build/dev/activate.sh
 | `ubsan` | Debug, tests, UndefinedBehaviorSanitizer | Undefined-behavior diagnostics | `install/ubsan/` |
 | `offline` | RelWithAssert, tests, system dependencies | No dependency downloads | `install/offline/` |
 | `ci` | RelWithAssert, tests, warnings as errors | Base-stack integration CI | `install/ci/` |
+| `wasm` | Release, static libraries, no tests, Emscripten toolchain (`$EMSDK`) | WebAssembly builds | `install/wasm/` |
 | `full` | RelWithAssert, tests, ZeroMQ/SDR/Audio blocks, control-plane, Studio | Complete application development | `install/full/` |
 | `full-ci` | RelWithAssert, tests, ZeroMQ/SDR/Audio blocks, control-plane, Studio | Complete integration CI | `install/full-ci/` |
 
